@@ -92,4 +92,40 @@ public class Sort {
 
         System.out.println("Count: " + count);
     }
+
+    public static void selectionSortDescending(int[] elements) {
+        int count=0;
+
+        for (int j = 0; j < elements.length - 1; j++) {
+            int maxIndex = j;
+            for (int k = j + 1; k < elements.length; k++) {
+                count++;
+                if (elements[k] > elements[maxIndex]) {
+                    maxIndex = k;
+                }
+            }
+            int temp = elements[j];
+            elements[j] = elements[maxIndex];
+            elements[maxIndex] = temp;
+        }
+
+        System.out.println("Count: " + count);
+    }
+
+    public static void insertionSortDescending(int[] elements) {
+        int count = 0;
+
+        for (int j = 1; j < elements.length; j++) {
+            int temp = elements[j];
+            int possibleIndex = j;
+            while (possibleIndex > 0 && temp > elements[possibleIndex - 1]) {
+                count++;
+                elements[possibleIndex] = elements[possibleIndex - 1];
+                possibleIndex--;
+            }
+            elements[possibleIndex] = temp;
+        }
+
+        System.out.println("Count: " + count);
+    }
 }
